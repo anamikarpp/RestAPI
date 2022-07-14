@@ -1,0 +1,13 @@
+applications:
+- name: RestAPI
+  path: target/RestCrud-0.0.1-SNAPSHOT.jar
+  buildpack: https://github.com/cloudfoundry/java-buildpack
+  instances: 1
+  memory: 1G
+  env: 
+    SPRING_PROFILES_ACTIVE: cloud
+    JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+ 
+  services:
+  - tenant-db
+  stack: cflinuxfs3
